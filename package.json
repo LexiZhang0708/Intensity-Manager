@@ -1,15 +1,27 @@
 {
   "name": "range-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "A range list implementation that manages intensity levels.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lexi Zhang",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "typescript": "^5.4.5"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LexiZhang0708/range-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LexiZhang0708/range-list/issues"
+  },
+  "homepage": "https://github.com/LexiZhang0708/range-list#readme"
 }
