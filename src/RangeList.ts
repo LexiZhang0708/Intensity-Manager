@@ -208,6 +208,14 @@ class IntensityManager {
 
         return this.intensities;
     }
+
+
+    clear() {
+        /*
+        Clear the intensity array.
+         */
+        this.intensities = [];
+    }
 }
 
 module.exports = IntensityManager;
