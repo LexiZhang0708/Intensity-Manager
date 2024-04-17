@@ -144,6 +144,20 @@ class IntensityManager {
     }
 
 
+    private removeDuplicates() {
+        /*
+        Remove times in the intensity array with duplicate intensities.
+         */
+        for (let i = this.intensities.length - 1; i > 0; i--) {
+            // compare the intensity of the current time with the previous one
+            if (this.intensities[i][1] === this.intensities[i - 1][1]) {
+                // if duplicate is found remove the current element
+                this.intensities.splice(i, 1);
+            }
+        }
+    }
+
+
     update(from: number, to: number, amount: number, mode: "add" | "set") {
         /*
         Update the intensity array at the time interval [from, to] by amount if mode is "add" and set it to amount
@@ -187,6 +201,8 @@ class IntensityManager {
             func(updateStartIdx, updateEndIdx, amount);
         }
 
+        // remove duplicate intensities
+        this.removeDuplicates();
         // trim the leading and trailing zeros
         this.trimZeros();
 
