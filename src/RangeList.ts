@@ -1,4 +1,4 @@
-class IntensityManager {
+export class IntensityManager {
     /*
     A class that manages “intensity” by segments.
     */
@@ -92,6 +92,7 @@ class IntensityManager {
         /*
         Update the intensity values for times in this.intensities[startIdx, endIdx] by amount.
          */
+
         for (let i = startIdx; i <= endIdx; i++) {
             this.intensities[i][1] += amount;
         }
@@ -178,14 +179,14 @@ class IntensityManager {
                     // nothing to update
                     return this.intensities;
                 }
-                func = this.updateIntensities;
+                func = this.updateIntensities.bind(this);
                 break;
             case "set":
                 if (from === to) {
                     // nothing to set
                     return this.intensities;
                 }
-                func = this.setIntensities;
+                func = this.setIntensities.bind(this);
                 break;
             default:
                 console.error("Invalid mode: must be 'add' or 'set'");
@@ -205,7 +206,6 @@ class IntensityManager {
         this.removeDuplicates();
         // trim the leading and trailing zeros
         this.trimZeros();
-
         return this.intensities;
     }
 
@@ -218,4 +218,3 @@ class IntensityManager {
     }
 }
 
-module.exports = IntensityManager;
