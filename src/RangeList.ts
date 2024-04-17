@@ -105,8 +105,9 @@ export class IntensityManager {
         Set the intensity values for times in this.intensities[startIdx, endIdx] to amount.
          */
         this.intensities[startIdx][1] = amount;
+        this.intensities[endIdx][1] = amount;
         // remove everything in between the endpoints as they all have the same intensity
-        this.intensities.splice(startIdx + 1, endIdx - startIdx);
+        this.intensities.splice(startIdx + 1, endIdx - startIdx - 1);
     }
 
 
@@ -202,10 +203,10 @@ export class IntensityManager {
             func(updateStartIdx, updateEndIdx, amount);
         }
 
-        // remove duplicate intensities
-        this.removeDuplicates();
         // trim the leading and trailing zeros
         this.trimZeros();
+        // remove duplicate intensities
+        this.removeDuplicates();
         return this.intensities;
     }
 
